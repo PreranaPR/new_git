@@ -1,0 +1,16 @@
+{
+  "id": "QpAGRqMDiVPftetfwFtFB",
+  "name": "Detiles",
+  "appId": "EeKyFlMOWVvKjyYdicqnm",
+  "folderId": "CvpkCvmnYHPwHvYuBNKmc",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "name": "Detiles",
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/QpAGRqMDiVPftetfwFtFB"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

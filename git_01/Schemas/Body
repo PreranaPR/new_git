@@ -1,0 +1,16 @@
+{
+  "id": "hnjKEhPHvZKuvbfruMvuE",
+  "name": "Body",
+  "appId": "EeKyFlMOWVvKjyYdicqnm",
+  "folderId": "CvpkCvmnYHPwHvYuBNKmc",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "name": "Body",
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/QOpHzMTgdFVNxAyLeZruU"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

@@ -1,0 +1,427 @@
+{
+  "id": "RmwNVIfdtNERhZOFoaSxO",
+  "name": "All_ResourceContext",
+  "workflowName": "All_ResourceContext",
+  "itemType": "workflow",
+  "appId": "EeKyFlMOWVvKjyYdicqnm",
+  "folderId": "bxgufxlGkDtSVIDmKxQYS",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "ZygPXtvMZtPaOEkgGzeEe",
+      "stepName": "DeleteResourceContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DeleteResourceContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "activityCluster": [
+          {
+            "activity": "GetResourceContext",
+            "type": "SIMPLE",
+            "eventName": "GetResourceContext",
+            "description": ""
+          },
+          {
+            "activity": "SaveResourceContext",
+            "type": "SIMPLE",
+            "eventName": "SaveResourceContext",
+            "description": ""
+          },
+          {
+            "activity": "DeleteResourceContext",
+            "type": "SIMPLE",
+            "eventName": "DeleteResourceContext",
+            "description": ""
+          }
+        ],
+        "isCustomType": true,
+        "name": "DeleteResourceContext",
+        "sourceSchemas": [
+          "zZlmQvxklHaRPUwllAqjG",
+          "ZQUZJZfXSnitImOtbEuHk",
+          "vuXNepbBAFevzXMhGIPKh"
+        ]
+      }
+    },
+    {
+      "id": "vuXNepbBAFevzXMhGIPKh",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "QpAGRqMDiVPftetfwFtFB",
+        "name": "RESTService",
+        "description": "",
+        "path": "test",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      }
+    },
+    {
+      "id": "ufaktTrvDLDZWhOaygLlp",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "description": "",
+        "sourceSchemas": [
+          "ZygPXtvMZtPaOEkgGzeEe",
+          "zZlmQvxklHaRPUwllAqjG",
+          "ZQUZJZfXSnitImOtbEuHk",
+          "vuXNepbBAFevzXMhGIPKh"
+        ],
+        "targetSchema": "hnjKEhPHvZKuvbfruMvuE"
+      }
+    },
+    {
+      "id": "zZlmQvxklHaRPUwllAqjG",
+      "stepName": "SaveResourceContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SaveResourceContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "activityCluster": [
+          {
+            "activity": "GetResourceContext",
+            "type": "SIMPLE",
+            "eventName": "GetResourceContext",
+            "description": ""
+          },
+          {
+            "activity": "SaveResourceContext",
+            "type": "SIMPLE",
+            "eventName": "SaveResourceContext",
+            "description": ""
+          },
+          {
+            "activity": "DeleteResourceContext",
+            "type": "SIMPLE",
+            "eventName": "DeleteResourceContext",
+            "description": ""
+          }
+        ],
+        "isCustomType": true,
+        "name": "SaveResourceContext",
+        "sourceSchemas": [
+          "ZQUZJZfXSnitImOtbEuHk",
+          "vuXNepbBAFevzXMhGIPKh"
+        ]
+      }
+    },
+    {
+      "id": "ZQUZJZfXSnitImOtbEuHk",
+      "stepName": "GetResourceContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetResourceContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "activityCluster": [
+          {
+            "activity": "GetResourceContext",
+            "type": "SIMPLE",
+            "eventName": "GetResourceContext",
+            "description": ""
+          },
+          {
+            "activity": "SaveResourceContext",
+            "type": "SIMPLE",
+            "eventName": "SaveResourceContext",
+            "description": ""
+          },
+          {
+            "activity": "DeleteResourceContext",
+            "type": "SIMPLE",
+            "eventName": "DeleteResourceContext",
+            "description": ""
+          }
+        ],
+        "isCustomType": true,
+        "description": "",
+        "name": "GetResourceContext",
+        "sourceSchemas": [
+          "vuXNepbBAFevzXMhGIPKh"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "jnrgpbPdNKIGILaoBNcDA",
+      "from": "vuXNepbBAFevzXMhGIPKh",
+      "to": "ZQUZJZfXSnitImOtbEuHk",
+      "handleMap": {
+        "source": "vuXNepbBAFevzXMhGIPKh_1",
+        "target": "ZQUZJZfXSnitImOtbEuHk_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "WjnKcjJrfwCZQnPWoBXSM",
+      "from": "ZQUZJZfXSnitImOtbEuHk",
+      "to": "zZlmQvxklHaRPUwllAqjG",
+      "handleMap": {
+        "source": "ZQUZJZfXSnitImOtbEuHk_2",
+        "target": "zZlmQvxklHaRPUwllAqjG_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "CtENiccHIPtvVMaqzceHV",
+      "from": "zZlmQvxklHaRPUwllAqjG",
+      "to": "ZygPXtvMZtPaOEkgGzeEe",
+      "handleMap": {
+        "source": "zZlmQvxklHaRPUwllAqjG_2",
+        "target": "ZygPXtvMZtPaOEkgGzeEe_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "CqUXmFCAySRrEPPXoEQTD",
+      "from": "ZygPXtvMZtPaOEkgGzeEe",
+      "to": "ufaktTrvDLDZWhOaygLlp",
+      "handleMap": {
+        "source": "ZygPXtvMZtPaOEkgGzeEe_2",
+        "target": "ufaktTrvDLDZWhOaygLlp_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "ZygPXtvMZtPaOEkgGzeEe": {
+      "x": 576,
+      "y": 32,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "ZygPXtvMZtPaOEkgGzeEe_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "ZygPXtvMZtPaOEkgGzeEe_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "vuXNepbBAFevzXMhGIPKh": {
+      "x": 16,
+      "y": 32,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "vuXNepbBAFevzXMhGIPKh_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "ufaktTrvDLDZWhOaygLlp": {
+      "x": 768,
+      "y": 32,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "ufaktTrvDLDZWhOaygLlp_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "zZlmQvxklHaRPUwllAqjG": {
+      "x": 372,
+      "y": 32,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "zZlmQvxklHaRPUwllAqjG_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "zZlmQvxklHaRPUwllAqjG_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "ZQUZJZfXSnitImOtbEuHk": {
+      "x": 208,
+      "y": 32,
+      "handles": [
+        {
+          "position": "left",
+          "type": "source",
+          "id": "ZQUZJZfXSnitImOtbEuHk_1"
+        },
+        {
+          "position": "right",
+          "type": "source",
+          "id": "ZQUZJZfXSnitImOtbEuHk_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "ZQUZJZfXSnitImOtbEuHk": {
+      "metaInfo": {
+        "id": "ZQUZJZfXSnitImOtbEuHk",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetResourceContext",
+        "description": ""
+      },
+      "mappings": {
+        "GetResourceContext": {
+          "tag": {
+            "name": "$.RESTService.body.name",
+            "value": "$.RESTService.body.id"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "zZlmQvxklHaRPUwllAqjG": {
+      "metaInfo": {
+        "id": "zZlmQvxklHaRPUwllAqjG",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SaveResourceContext",
+        "description": ""
+      },
+      "mappings": {
+        "SaveResourceContext": {
+          "application": "$.GetResourceContext.getResourceContextOutput.resourceContext.application",
+          "env": "$.GetResourceContext.getResourceContextOutput.resourceContext.env",
+          "provider": "$.GetResourceContext.getResourceContextOutput.resourceContext.provider",
+          "resourceType": "$.GetResourceContext.getResourceContextOutput.resourceContext.resourceType",
+          "tags": [
+            {
+              "__expr__": "$.GetResourceContext.getResourceContextOutput.resourceContext.tags[1]",
+              "name": ".name",
+              "value": ".value",
+              "__arrayItemName__": "tag"
+            }
+          ],
+          "config": {
+            "headers": [
+              {
+                "__arrayItemName__": "header"
+              }
+            ],
+            "parameters": [
+              {
+                "__arrayItemName__": "parameter"
+              }
+            ]
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "ZygPXtvMZtPaOEkgGzeEe": {
+      "metaInfo": {
+        "id": "ZygPXtvMZtPaOEkgGzeEe",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "DeleteResourceContext",
+        "description": ""
+      },
+      "mappings": {
+        "DeleteResourceContext": {
+          "tag": {
+            "__expr__": "$.SaveResourceContext.saveResourceContextOutput",
+            "name": "$.SaveResourceContext.saveResourceContextOutput.op",
+            "value": "$.SaveResourceContext.saveResourceContextOutput.status"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "ufaktTrvDLDZWhOaygLlp": {
+      "metaInfo": {
+        "id": "ufaktTrvDLDZWhOaygLlp",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End",
+        "description": "This activity is for scheduling."
+      },
+      "mappings": {
+        "End": {
+          "data": {
+            "__expr__": "$.DeleteResourceContext.deleteResourceContextOutput"
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "All_ResourceContext"
+  }
+}
