@@ -1,0 +1,648 @@
+{
+  "id": "zgGcUxVNVwhjwoOQIfdVY",
+  "name": "Data_Table_Workflow 1",
+  "workflowName": "Data_Table_Workflow 1",
+  "itemType": "workflow",
+  "appId": "ZEhCkBfyjStrqKPcCWJgv",
+  "folderId": "PHDYCEErCcjMtmhpiHrre",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "AoohyiWlxaXpbBVqvgMhR",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "queryParams": [
+          {
+            "name": "EmployeeID",
+            "type": "integer",
+            "defaultValue": 11,
+            "required": true
+          },
+          {
+            "name": "Name",
+            "type": "text",
+            "defaultValue": "Tester",
+            "required": true
+          },
+          {
+            "name": "Salary",
+            "type": "number",
+            "defaultValue": 1000,
+            "required": true
+          },
+          {
+            "name": "BonusEligible",
+            "type": "boolean",
+            "defaultValue": true,
+            "required": false
+          }
+        ],
+        "pathParams": [],
+        "name": "RESTService",
+        "description": "",
+        "path": "test?EmployeeID=11&Name=Tester&Salary=1000&BonusEligible=true",
+        "method": [
+          "GET"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "output": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "lXvaYXDceStgrsVWsLGvB",
+      "stepName": "DataTableInsert",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableInsert",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "isKey": true
+          },
+          {
+            "name": "Name",
+            "isKey": false
+          },
+          {
+            "name": "Age",
+            "isKey": false
+          },
+          {
+            "name": "Gender",
+            "isKey": false
+          },
+          {
+            "name": "JoiningDate",
+            "isKey": false
+          },
+          {
+            "name": "Department",
+            "isKey": false
+          },
+          {
+            "name": "Salary",
+            "isKey": false
+          },
+          {
+            "name": "BonusEligible",
+            "isKey": false
+          },
+          {
+            "name": "LastPromotionDate",
+            "isKey": false
+          },
+          {
+            "name": "BankAccountNumber",
+            "isKey": false
+          },
+          {
+            "name": "IFSCCode",
+            "isKey": false
+          },
+          {
+            "name": "PAN",
+            "isKey": false
+          },
+          {
+            "name": "Address",
+            "isKey": false
+          },
+          {
+            "name": "Email",
+            "isKey": false
+          },
+          {
+            "name": "PhoneNumber",
+            "isKey": false
+          },
+          {
+            "name": "MaritalStatus",
+            "isKey": false
+          }
+        ],
+        "name": "DataTableInsert",
+        "description": "",
+        "dataTable": "dt:{\"id\" : \"CAtkiabkMobnAyOmtAbBw\",\"name\" : \"employee_record\"}",
+        "ttl": 60,
+        "isCustomType": true,
+        "sourceSchemas": [
+          "AoohyiWlxaXpbBVqvgMhR"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "WyNgltJRMXOUWqRcJTIZT",
+      "stepName": "DataTableQuery",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableQuery",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "conditions": [
+          {
+            "name": "group_1",
+            "filters": [
+              {
+                "field": "EmployeeID",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "Name",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "Salary",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "BonusEligible",
+                "operator": "="
+              }
+            ]
+          }
+        ],
+        "rowNum": false,
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "isKey": true
+          },
+          {
+            "name": "Name",
+            "isKey": false
+          },
+          {
+            "name": "Salary",
+            "isKey": false
+          },
+          {
+            "name": "BonusEligible",
+            "isKey": false
+          }
+        ],
+        "name": "DataTableQuery",
+        "description": "",
+        "dataTable": "dt:{\"id\" : \"CAtkiabkMobnAyOmtAbBw\",\"name\" : \"employee_record\"}",
+        "pageSize": 100,
+        "batchSize": 0,
+        "isCustomType": true,
+        "sourceSchemas": [
+          "lXvaYXDceStgrsVWsLGvB",
+          "AoohyiWlxaXpbBVqvgMhR"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "YXdxooXduFlyWavCHsUXF",
+      "stepName": "DataTableUpsert",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableUpsert",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "isKey": true
+          },
+          {
+            "name": "Name",
+            "isKey": false
+          },
+          {
+            "name": "Salary",
+            "isKey": false
+          },
+          {
+            "name": "BonusEligible",
+            "isKey": false
+          },
+          {
+            "name": "IFSCCode",
+            "isKey": false
+          }
+        ],
+        "name": "DataTableUpsert",
+        "description": "",
+        "dataTable": "dt:{\"id\" : \"CAtkiabkMobnAyOmtAbBw\",\"name\" : \"employee_record\"}",
+        "ttl": 60,
+        "isCustomType": true,
+        "sourceSchemas": [
+          "WyNgltJRMXOUWqRcJTIZT",
+          "lXvaYXDceStgrsVWsLGvB",
+          "AoohyiWlxaXpbBVqvgMhR"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "tSaBsUQCBHmMZEzgTcukh",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "sourceSchemas": [
+          "AoohyiWlxaXpbBVqvgMhR",
+          "lXvaYXDceStgrsVWsLGvB",
+          "WyNgltJRMXOUWqRcJTIZT",
+          "YXdxooXduFlyWavCHsUXF",
+          "LffDkZfwDXFXZLRrGQepT"
+        ],
+        "targetSchema": "CADfOAbHZaVJKBnlkIrdH"
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "LffDkZfwDXFXZLRrGQepT",
+      "stepName": "DataTableDelete",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableDelete",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "conditions": [
+          {
+            "name": "group_1",
+            "filters": [
+              {
+                "field": "EmployeeID",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "Name",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "Salary",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "BonusEligible",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "IFSCCode",
+                "operator": "="
+              }
+            ]
+          }
+        ],
+        "name": "DataTableDelete",
+        "description": "",
+        "dataTable": "dt:{\"id\" : \"CAtkiabkMobnAyOmtAbBw\",\"name\" : \"employee_record\"}",
+        "isCustomType": true,
+        "sourceSchemas": [
+          "AoohyiWlxaXpbBVqvgMhR",
+          "lXvaYXDceStgrsVWsLGvB",
+          "WyNgltJRMXOUWqRcJTIZT",
+          "YXdxooXduFlyWavCHsUXF"
+        ]
+      },
+      "activityCluster": []
+    }
+  ],
+  "transitions": [
+    {
+      "id": "iwDtuqNBOGvalAZVAkIEg",
+      "from": "AoohyiWlxaXpbBVqvgMhR",
+      "to": "lXvaYXDceStgrsVWsLGvB",
+      "handleMap": {
+        "source": "AoohyiWlxaXpbBVqvgMhR_1",
+        "target": "lXvaYXDceStgrsVWsLGvB_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "zwtgOFOhFydKLCPivmYZc",
+      "from": "lXvaYXDceStgrsVWsLGvB",
+      "to": "WyNgltJRMXOUWqRcJTIZT",
+      "handleMap": {
+        "source": "lXvaYXDceStgrsVWsLGvB_2",
+        "target": "WyNgltJRMXOUWqRcJTIZT_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "oLfQiYuoeoAPobiifcovO",
+      "from": "WyNgltJRMXOUWqRcJTIZT",
+      "to": "YXdxooXduFlyWavCHsUXF",
+      "handleMap": {
+        "source": "WyNgltJRMXOUWqRcJTIZT_2",
+        "target": "YXdxooXduFlyWavCHsUXF_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "irvOIrOrQnPXqjfIlVxVq",
+      "from": "YXdxooXduFlyWavCHsUXF",
+      "to": "LffDkZfwDXFXZLRrGQepT",
+      "handleMap": {
+        "source": "YXdxooXduFlyWavCHsUXF_2",
+        "target": "LffDkZfwDXFXZLRrGQepT_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "pTXrNJsQbhwQdKjnJvuFW",
+      "from": "LffDkZfwDXFXZLRrGQepT",
+      "to": "tSaBsUQCBHmMZEzgTcukh",
+      "handleMap": {
+        "source": "LffDkZfwDXFXZLRrGQepT_2",
+        "target": "tSaBsUQCBHmMZEzgTcukh_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "AoohyiWlxaXpbBVqvgMhR": {
+      "x": 16,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "AoohyiWlxaXpbBVqvgMhR_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "lXvaYXDceStgrsVWsLGvB": {
+      "x": 240,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "lXvaYXDceStgrsVWsLGvB_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "lXvaYXDceStgrsVWsLGvB_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "WyNgltJRMXOUWqRcJTIZT": {
+      "x": 404,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "WyNgltJRMXOUWqRcJTIZT_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "WyNgltJRMXOUWqRcJTIZT_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "YXdxooXduFlyWavCHsUXF": {
+      "x": 568,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "YXdxooXduFlyWavCHsUXF_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "YXdxooXduFlyWavCHsUXF_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "tSaBsUQCBHmMZEzgTcukh": {
+      "x": 896,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "tSaBsUQCBHmMZEzgTcukh_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "LffDkZfwDXFXZLRrGQepT": {
+      "x": 732,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "LffDkZfwDXFXZLRrGQepT_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "LffDkZfwDXFXZLRrGQepT_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "lXvaYXDceStgrsVWsLGvB": {
+      "metaInfo": {
+        "id": "lXvaYXDceStgrsVWsLGvB",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "DataTableInsert",
+        "description": ""
+      },
+      "mappings": {
+        "DataTableInsert": {
+          "records": [
+            {
+              "EmployeeID": "$.RESTService.queryParams.EmployeeID",
+              "Name": "$.RESTService.queryParams.Name",
+              "Salary": "$.RESTService.queryParams.Salary",
+              "BonusEligible": "$.RESTService.queryParams.BonusEligible",
+              "__arrayItemName__": "record"
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    },
+    "WyNgltJRMXOUWqRcJTIZT": {
+      "metaInfo": {
+        "id": "WyNgltJRMXOUWqRcJTIZT",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "DataTableQuery",
+        "description": ""
+      },
+      "mappings": {
+        "DataTableQuery": {
+          "conditions": {
+            "group_1": {
+              "EmployeeID": "$.RESTService.queryParams.EmployeeID",
+              "Name": "$.RESTService.queryParams.Name",
+              "Salary": "$.RESTService.queryParams.Salary",
+              "BonusEligible": "$.RESTService.queryParams.BonusEligible"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "YXdxooXduFlyWavCHsUXF": {
+      "metaInfo": {
+        "id": "YXdxooXduFlyWavCHsUXF",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "DataTableUpsert",
+        "description": ""
+      },
+      "mappings": {
+        "DataTableUpsert": {
+          "records": [
+            {
+              "EmployeeID": "$.DataTableQuery.dtQueryOutput.records[1].EmployeeID",
+              "Name": "$.DataTableQuery.dtQueryOutput.records[1].Name",
+              "Salary": "$.DataTableQuery.dtQueryOutput.records[1].Salary",
+              "BonusEligible": "$.DataTableQuery.dtQueryOutput.records[1].BonusEligible",
+              "IFSCCode": "$.DataTableQuery.dtQueryOutput.numRecords",
+              "__arrayItemName__": "record"
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    },
+    "tSaBsUQCBHmMZEzgTcukh": {
+      "metaInfo": {
+        "id": "tSaBsUQCBHmMZEzgTcukh",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {
+        "End": {
+          "integer": "$.DataTableUpsert.dtUpsertOutput.rowsAffected"
+        }
+      },
+      "attributes": {}
+    },
+    "LffDkZfwDXFXZLRrGQepT": {
+      "metaInfo": {
+        "id": "LffDkZfwDXFXZLRrGQepT",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "DataTableDelete",
+        "description": ""
+      },
+      "mappings": {
+        "DataTableDelete": {
+          "conditions": {
+            "group_1": {
+              "EmployeeID": "$.RESTService.queryParams.EmployeeID",
+              "Name": "$.RESTService.queryParams.Name",
+              "Salary": "$.RESTService.queryParams.Salary",
+              "BonusEligible": "$.RESTService.queryParams.BonusEligible",
+              "IFSCCode": "$.DataTableUpsert.dtUpsertOutput.rowsAffected"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Data_Table_Workflow",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": [],
+    "workflowVariables": "CADfOAbHZaVJKBnlkIrdH"
+  }
+}
